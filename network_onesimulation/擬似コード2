@@ -1,0 +1,56 @@
+
+# この辺がシミュレーションで使用する定数
+スループット = 1000
+clientTime = 0
+serverTime = 0
+クライアント数 = 1
+サーバ数 = 1
+処理可能なデータサイズ = スループット
+
+# この辺がシミュレーションで使用する変数
+時間を管理する配列 = [timeTable]
+キュー = [リクエスト]
+
+# クラス
+class timeTable:
+    time clientTime, serverTime
+    int リクエストサイズ
+    int 送信したクライアント番号
+    int 返信したサーバ番号
+
+
+class リクエスト:
+    int リクエストサイズ
+    int 送信したクライアント番号
+    time clientTime
+
+# 処理関数
+
+def クライアント群(テスト時間, クライアント数):
+    for 時刻 in range(テスト時間):
+        for クライアント番号 in range(クライアント数):
+            reqTime = 時刻+ポアソン分布ジェネ()
+            # ロックを使用して順序通りにキューに追加
+            with キューへのロック:
+                リクエストサイズ = リクエストサイズを正規分布から作成()
+                キュー.put((クライアント番号, reqTime, リクエストサイズ))
+    return
+
+def サーバ(reqTime, リクエストサイズ):
+    #キューがから出ないことの判断
+    while not キュー.empty():
+        with キューロック:
+        
+    
+    #キューから適切な順番でリクエストを取り出す処理
+
+    if int(reqTime) == 0:
+        serverTime = 0
+    else:
+        serverTime = max(reqTime, serverTime)
+    配列.append(clientTime, serverTime + リクエストサイズ/スループット, リクエストサイズ, クライアント番号, サーバ番号)
+    serverTime += リクエストサイズ/スループット
+    return
+
+
+testcode.pyに書いたようなコードを真似すればおそらくクライアントもサーバも同じ感じでマルチスレッドできる気がします

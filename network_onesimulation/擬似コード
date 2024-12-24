@@ -1,0 +1,46 @@
+
+スループット = 1000
+clientTime = 0
+serverTime = 0
+処理可能なデータサイズ = スループット
+
+記録する配列 =  []
+配列中身
+class 中身{
+    リクエストサイズ
+    レスポンスタイム
+}
+function クライアント(テスト時間/回数, キュー[]){
+
+    for i in range(テスト時間/回数){
+    リクエストサイズを正規分布から作成
+
+    キューに追加(リクエストサイズ, clientTime)
+    clientTime += 1
+    
+    }
+    return 配列
+}
+
+function サーバ(キュー[]){
+    キューの先頭の取り出し{
+
+        ; y = ax + b
+        ; y = 時間
+        ; a = スループットの逆数
+        ; x = リクエストサイズ
+        ; b = serverTime
+
+        serverTime = max(clientTime, serverTime)
+        配列.append(リクエストサイズ, clientTime, serverTime + リクエストサイズ/スループット)
+        serverTime += リクエストサイズ/スループット
+    }
+}
+
+
+main(argc argv*){
+    キュー = []
+    クライアント(argv[1], キュー[])
+    画像描画関数(配列)
+    おわり
+}
