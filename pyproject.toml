@@ -4,10 +4,10 @@ version = "0.1.0"
 description = ""
 authors = ["yanbaru1331 <s24012@g.metro-cit.ac.jp>"]
 readme = "README.md"
-packages = [{include = "network_onesimulation"}]
+packages = [{ include = "network_onesimulation" }]
 
 [tool.poetry.dependencies]
-python = "^3.11.4"
+python = "^3.9.6"
 
 
 [build-system]
